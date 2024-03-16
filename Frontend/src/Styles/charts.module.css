@@ -1,0 +1,36 @@
+.charts{
+    margin-top: -1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: white;
+    /* height: fit-content; */
+    height: 80%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    /* background-color: rgb(236, 229, 229); */
+    border:none;
+    border-radius: 1rem;
+}
+.dchart{
+    height:80%;
+    /* width: 80%; */
+}
+@media screen and (max-width: 480px) {
+    .charts{
+        height: 60%;
+        width: 90%;
+        margin-top: 0;
+        transform: scale(1.1);
+    }
+    .dchart{
+        height:80%;
+        /* width: 80%; */
+        transform: scale(1.1);
+    }
+
+    
+}
