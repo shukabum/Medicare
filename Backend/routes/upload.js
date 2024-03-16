@@ -27,7 +27,7 @@ router.post("/", upload.single("file"), async (req, res) => {
 
     await newReport.save();
 
-    const flaskEndpoint = "http://127.0.0.1:5000/upload";
+    const flaskEndpoint = "https://mediflask.vercel.app/upload";
     const response = await axios.post(flaskEndpoint, {
       filename: filename,
       fileData: fileData,
