@@ -20,7 +20,7 @@ const ReportUpload = () => {
       console.log(event.target.files);
 
       const response = await axios.post(
-        "http://localhost:8080/upload",
+        "https://medicare-dcyw.vercel.app/upload",
         formData,
         {
           headers: {
@@ -43,7 +43,7 @@ const ReportUpload = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/repos")
+      .get("https://medicare-dcyw.vercel.app/repos")
       .then((resp) => {
         // console.log(resp);
         setFiles(resp.data);

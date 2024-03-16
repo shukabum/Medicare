@@ -8,7 +8,7 @@ const Content = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/summary", {
+      .get("https://medicare-dcyw.vercel.app/summary", {
         params: {
           filename: localStorage.getItem("filename"),
         },

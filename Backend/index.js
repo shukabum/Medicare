@@ -22,7 +22,7 @@ app.use("/repos", numrepos);
 
 const connectToDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect("mongodb+srv://shibs1773:hLVnUejqlNk2nCdJ@cluster0.ekjvyjc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
     console.log("DB Connected");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
