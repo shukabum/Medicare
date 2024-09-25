@@ -5,6 +5,7 @@ const reportSchema = new mongoose.Schema({
   fileData: Buffer, // Store file data as Buffer
   summary: String,
   userEmail: String,
+  fileType:String
 });
 
 const Report = mongoose.model("Report", reportSchema);

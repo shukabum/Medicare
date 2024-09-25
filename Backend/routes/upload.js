@@ -6,21 +6,23 @@ const mongoose = require("mongoose");
 const Report = require("../models/Report");
 
 const router = express.Router();
-const upload = multer({ dest: "/tmp/uploads/" });
-router.post("/", upload.single("file"), async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     if (!req.file)
       return res.status(400).json({ message: "No file data uploaded" });
 
     const filename = req.file.originalname;
+    const fileType = req.file.mimetype;
     console.log(req.file.originalname);
     // const fileDataPath = req.file.path;
-    const fileData = req.file.path;
+    const fileDataPath = req.file.path;
+    const fileData = await fs.readFile(fileDataPath);
     const { email } = req.body;
     let summary = "";
     const newReport = new Report({
       filename: filename,
-      fileData: "",
+      fileData: fileData,
+      fileType: fileType,
       summary: summary,
       email: email,
     });
@@ -30,12 +32,12 @@ router.post("/", upload.single("file"), async (req, res) => {
     const flaskEndpoint = "http://127.0.0.1:5000/upload";
     const response = await axios.post(flaskEndpoint, {
       filename: filename,
-      fileData: fileData,
+      fileData: fileData.toString('base64'),
     });
 
     summary = response.data.summary;
 
-    await Report.findOneAndUpdate({ filename: filename }, { summary: summary });
+    await Report.findOneAndUpdate({ _id: newReport._id }, { summary: summary });
 
     res.json({
       message: "File uploaded successfully",
