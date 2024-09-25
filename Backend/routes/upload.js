@@ -4,9 +4,9 @@ const fs = require("fs");
 const axios = require("axios");
 const mongoose = require("mongoose");
 const Report = require("../models/Report");
-
+const upload = multer({ dest: "/tmp/uploads/" });
 const router = express.Router();
-router.post("/", async (req, res) => {
+router.post("/",  upload.single("file"),async (req, res) => {
   try {
     console.log(req);
     if (!req.file)
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     const flaskEndpoint = "http://127.0.0.1:5000/upload";
     const response = await axios.post(flaskEndpoint, {
       filename: filename,
-      fileData: fileData,
+      fileData: fileData.toString('base64'),
     });
 
     summary = response.data.summary;
