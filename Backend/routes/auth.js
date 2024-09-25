@@ -32,6 +32,7 @@ router.post("/login", async (req, res) => {
 // Register route
 router.post("/register", async (req, res) => {
   try {
+    res.send("called register");
     const { username, password, email } = req.body;
     const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
