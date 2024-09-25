@@ -10,7 +10,7 @@ from flask_cors import CORS
 import requests
 import json
 app = Flask(__name__)
-CORS(app) 
+CORS(app,resources={r"/*": {"origins": "*"}}) 
 
 # Configure MongoDB
 app.config["MONGO_URI"] = "mongodb+srv://shibs1773:hLVnUejqlNk2nCdJ@cluster0.ekjvyjc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

@@ -9,7 +9,13 @@ const home = require("./routes/home");
 const cors = require("cors");
 const app = express();
 const PORT = 8080;
-app.use(cors());
+const corsOptions = {
+  origin: 'https://medicare-steel.vercel.app',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+// app.use(cors());
 app.use(express.json());
 app.use("/", home);
 app.use("/home", (req, res) => {
