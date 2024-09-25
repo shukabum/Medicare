@@ -13,9 +13,9 @@ router.post("/", async (req, res) => {
 
     const filename = req.file.originalname;
     const fileType = req.file.mimetype;
-    console.log(req.file.originalname);
     // const fileDataPath = req.file.path;
     const fileDataPath = req.file.path;
+    console.log(fileDataPath);
     const fileData = await fs.readFile(fileDataPath);
     const { email } = req.body;
     let summary = "";

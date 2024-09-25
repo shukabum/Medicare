@@ -43,7 +43,7 @@ const ReportUpload = () => {
 
   useEffect(() => {
     axios
-      .get("https://medicare-dcyw.vercel.app/repos")
+      .get("https://medicare-pnei.vercel.app/repos")
       .then((resp) => {
         // console.log(resp);
         setFiles(resp.data);
@@ -78,7 +78,9 @@ const ReportUpload = () => {
         {/* hello */}
 
         {files.map((f, i) => (
-          <div className={classes.reportcard} key ={i}>{f}</div>
+          <div className={classes.reportcard} key={i}>
+            {f}
+          </div>
         ))}
       </div>
     </div>
