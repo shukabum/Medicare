@@ -20,7 +20,7 @@ const ReportUpload = () => {
       console.log(event.target.files);
 
       const response = await axios.post(
-        "https://medicare-dcyw.vercel.app/upload",
+        "https://medicare-pnei.vercel.app/upload",
         formData,
         {
           headers: {

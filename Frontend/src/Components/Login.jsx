@@ -13,7 +13,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://medicare-dcyw.vercel.app/auth/login", {
+      const response = await axios.post("https://medicare-pnei.vercel.app/auth/login", {
         username,
         password,
       });

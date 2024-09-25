@@ -16,7 +16,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://medicare-dcyw.vercel.app/auth/register", {
+      const response = await axios.post("https://medicare-pnei.vercel.app/auth/register", {
         username,
         password,
         email,
