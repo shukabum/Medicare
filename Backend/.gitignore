@@ -1,6 +1,7 @@
 # Ignore the node_modules directory
 /node_modules
 
+/uploads
 # Ignore .env files
 .env
 .env.local
