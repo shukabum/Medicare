@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
     const fileType = req.file.mimetype;
     // const fileDataPath = req.file.path;
     const fileDataPath = req.file.path;
+    console.log("hello");
     console.log(fileDataPath);
     const fileData = await fs.readFile(fileDataPath);
     const { email } = req.body;
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
     const flaskEndpoint = "http://127.0.0.1:5000/upload";
     const response = await axios.post(flaskEndpoint, {
       filename: filename,
-      fileData: fileData.toString('base64'),
+      fileData: fileData,
     });
 
     summary = response.data.summary;
